@@ -21,7 +21,6 @@ enum preonic_layers {
   _QWERTY,
   _COLEMAK,
   _DVORAK,
-  _MOUSE,
   _LOWER,
   _RAISE,
   _ADJUST
@@ -40,29 +39,29 @@ enum preonic_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
- * ,------------------------------------------------------------------------------------------------------------------.
- * | ToggleMouse  |   1  |   2  |   3  |   4   |   5        |   6        |   7   |   8  |   9  |   0  | Del            |
- * |--------------+------+------+------+-------+------------+------------+-------+------+------+------+----------------|
- * | Tab          |   Q  |   W  |   E  |   R   |   T        |   Y        |   U   |   I  |   O  |   P  | Bksp           |
- * |--------------+------+------+------+-------+------------+------------+-------+------+------+------|----------------|
- * | Esc          |   A  |   S  |   D  |   F   |   G        |   H        |   J   |   K  |   L  |   ;  |  "             |
- * |--------------+------+------+------+-------+------------|------------+-------+------+------+------+----------------|
- * | Shift        |   Z  |   X  |   C  |   V   |   B        |   N        |   M   |   ,  |   .  |   /  | Enter (Shift)  |
- * |--------------+------+------+------+-------+------------+------------+-------+------+------+------+----------------|
- * | Caps         | Ctrl | Alt  | GUI  | Lower | Spc (Ctrl) |  Spc (Alt) | Raise | Left | Down |  Up  | Right          |
- * `-------------------------------------------------------------------------------------------------------------------'
+ * ,--------------------------------------------------------------------------------------------------------------------.
+ * | ToggleDVORAK  |   1  |   2  |   3  |   4   |   5        |   6        |   7   |   8  |   9  |   0  | Del            |
+ * |---------------+------+------+------+-------+------------+------------+-------+------+------+------+----------------|
+ * | Tab           |   Q  |   W  |   E  |   R   |   T        |   Y        |   U   |   I  |   O  |   P  | Bksp           |
+ * |---------------+------+------+------+-------+------------+------------+-------+------+------+------|----------------|
+ * | Esc           |   A  |   S  |   D  |   F   |   G        |   H        |   J   |   K  |   L  |   ;  |  "             |
+ * |---------------+------+------+------+-------+------------|------------+-------+------+------+------+----------------|
+ * | Shift         |   Z  |   X  |   C  |   V   |   B        |   N        |   M   |   ,  |   .  |   /  | Enter (Shift)  |
+ * |---------------+------+------+------+-------+------------+------------+-------+------+------+------+----------------|
+ * | Caps          | Ctrl | Alt  | GUI  | Lower | Spc (Ctrl) |  Spc (Alt) | Raise | Left | Down |  Up  | Right          |
+ * `--------------------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
-TG(_MOUSE),  KC_1,     KC_2,     KC_3,     KC_4,   KC_5,                 KC_6,                 KC_7,   KC_8,     KC_9,     KC_0,     KC_DEL,
-KC_TAB,      KC_Q,     KC_W,     KC_E,     KC_R,   KC_T,                 KC_Y,                 KC_U,   KC_I,     KC_O,     KC_P,     KC_BSPC,
-KC_ESC,      KC_A,     KC_S,     KC_D,     KC_F,   KC_G,                 KC_H,                 KC_J,   KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
-KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,   KC_B,                 KC_N,                 KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,  MT(MOD_RSFT,KC_ENT),
-KC_CAPS,     KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_LALT,KC_SPC),  RAISE,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT
+TG(_DVORAK),  KC_1,     KC_2,     KC_3,     KC_4,   KC_5,                 KC_6,                 KC_7,   KC_8,     KC_9,     KC_0,     KC_DEL,
+KC_TAB,       KC_Q,     KC_W,     KC_E,     KC_R,   KC_T,                 KC_Y,                 KC_U,   KC_I,     KC_O,     KC_P,     KC_BSPC,
+KC_ESC,       KC_A,     KC_S,     KC_D,     KC_F,   KC_G,                 KC_H,                 KC_J,   KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+KC_LSFT,      KC_Z,     KC_X,     KC_C,     KC_V,   KC_B,                 KC_N,                 KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,  MT(MOD_RSFT,KC_ENT),
+KC_CAPS,      KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_LALT,KC_SPC),  RAISE,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT
 ),
 
 /* Colemak
  * ,------------------------------------------------------------------------------------------------------------------.
- * | ToggleMouse  |   1  |   2  |   3  |   4   |   5        |   6        |   7   |   8  |   9  |   0  | Del            |
+ * | ToggleQWERTY  |   1  |   2  |   3  |   4   |   5        |   6        |   7   |   8  |   9  |   0  | Del            |
  * |--------------+------+------+------+-------+------------+------------+-------+------+------+------+----------------|
  * | Tab          |   Q  |   W  |   F  |   P   |   G        |   J        |   L   |   U  |   Y  |   ;  | Bksp           |
  * |--------------+------+------+------+-------+------------+------------+-------+------+------+-----------------------|
@@ -74,16 +73,16 @@ KC_CAPS,     KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_
  * `-------------------------------------------------------------------------------------------------------------------'
  */
 [_COLEMAK] = LAYOUT_preonic_grid(
-TG(_MOUSE),  KC_1,     KC_2,     KC_3,     KC_4,   KC_5,                 KC_6,                 KC_7,   KC_8,     KC_9,     KC_0,     KC_DEL,
-KC_TAB,      KC_Q,     KC_W,     KC_F,     KC_P,   KC_G,                 KC_J,                 KC_L,   KC_U,     KC_Y,     KC_SCLN,  KC_BSPC,
-KC_ESC,      KC_A,     KC_R,     KC_S,     KC_T,   KC_D,                 KC_H,                 KC_N,   KC_E,     KC_I,     KC_O,     KC_QUOT,
-KC_LSFT,     KC_Z,     KC_X,     KC_C,     KC_V,   KC_B,                 KC_K,                 KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,  MT(MOD_RSFT,KC_ENT),
-KC_CAPS,     KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_LALT,KC_SPC),  RAISE,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT
+TG(_QWERTY),  KC_1,     KC_2,     KC_3,     KC_4,   KC_5,                 KC_6,                 KC_7,   KC_8,     KC_9,     KC_0,     KC_DEL,
+KC_TAB,       KC_Q,     KC_W,     KC_F,     KC_P,   KC_G,                 KC_J,                 KC_L,   KC_U,     KC_Y,     KC_SCLN,  KC_BSPC,
+KC_ESC,       KC_A,     KC_R,     KC_S,     KC_T,   KC_D,                 KC_H,                 KC_N,   KC_E,     KC_I,     KC_O,     KC_QUOT,
+KC_LSFT,      KC_Z,     KC_X,     KC_C,     KC_V,   KC_B,                 KC_K,                 KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,  MT(MOD_RSFT,KC_ENT),
+KC_CAPS,      KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_LALT,KC_SPC),  RAISE,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT
 ),
 
 /* Dvorak
  * ,-------------------------------------------------------------------------------------------------------------------.
- * | ToggleMouse  |   1  |   2  |   3  |   4   |   5        |   6        |   7   |   8  |   9  |   0  | Bksp           |
+ * | ToggleQWERTY  |   1  |   2  |   3  |   4   |   5        |   6        |   7   |   8  |   9  |   0  | Bksp           |
  * |--------------+------+------+------+-------+------------+------------+-------+------+------+------+----------------|
  * | Tab          |   "  |   ,  |   .  |   P   |   Y        |   F        |   G   |   C  |   R  |   L  | Del            |
  * |--------------+------+------+------+-------+------------+------------+------+------+------+------------------------|
@@ -95,11 +94,11 @@ KC_CAPS,     KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_
  * `-------------------------------------------------------------------------------------------------------------------'
  */
 [_DVORAK] = LAYOUT_preonic_grid(
-TG(_MOUSE),  KC_1,     KC_2,     KC_3,     KC_4,   KC_5,                 KC_6,                 KC_7,   KC_8,     KC_9,     KC_0,   KC_DEL,
-KC_TAB,      KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,   KC_Y,                 KC_F,                 KC_G,   KC_C,     KC_R,     KC_L,   KC_BSPC,
-KC_ESC,      KC_A,     KC_O,     KC_E,     KC_U,   KC_I,                 KC_D,                 KC_H,   KC_T,     KC_N,     KC_S,   KC_SLSH,
-KC_LSFT,     KC_SCLN,  KC_Q,     KC_J,     KC_K,   KC_X,                 KC_B,                 KC_M,   KC_W,     KC_V,     KC_Z,   MT(MOD_RSFT,KC_ENT),
-KC_CAPS,     KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_LALT,KC_SPC),  RAISE,  KC_LEFT,  KC_DOWN,  KC_UP,  KC_RGHT
+TG(_QWERTY),  KC_1,     KC_2,     KC_3,     KC_4,   KC_5,                 KC_6,                 KC_7,   KC_8,     KC_9,     KC_0,   KC_DEL,
+KC_TAB,       KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,   KC_Y,                 KC_F,                 KC_G,   KC_C,     KC_R,     KC_L,   KC_BSPC,
+KC_ESC,       KC_A,     KC_O,     KC_E,     KC_U,   KC_I,                 KC_D,                 KC_H,   KC_T,     KC_N,     KC_S,   KC_SLSH,
+KC_LSFT,      KC_SCLN,  KC_Q,     KC_J,     KC_K,   KC_X,                 KC_B,                 KC_M,   KC_W,     KC_V,     KC_Z,   MT(MOD_RSFT,KC_ENT),
+KC_CAPS,      KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_LALT,KC_SPC),  RAISE,  KC_LEFT,  KC_DOWN,  KC_UP,  KC_RGHT
 ),
 
 /* Lower
@@ -145,47 +144,25 @@ KC_CAPS,     KC_LCTL,  KC_LALT,  KC_LGUI,  LOWER,  MT(MOD_LCTL,KC_SPC),  MT(MOD_
 ),
 
 /* Adjust (Lower + Raise + Esc)
- * ,------------------------------------------------------------------------------------------.
- * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12        |
- * |------+------+------+------+------+------+------+------+------+------+------+-------------|
- * |      | Reset| Debug|      |      |      |      |      |      |      |      |  Del        |
- * |------+------+------+------+------+-------------+------+------+------+------+-------------|
- * |      |      |Aud cy|Aud on|AudOff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |             |
- * |------+------+------+------+------+------|------+------+------+------+------+-------------|
- * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      | ToggleMouse |
- * |------+------+------+------+------+------+------+------+------+------+------+-------------|
- * |      |      |      |      |      |             |      |      |      |      |             |
- * `------------------------------------------------------------------------------------------'
+ * ,------------------------------------------------------------------------------------.
+ * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12  |
+ * |------+------+------+------+------+------+------+------+------+------+------+-------|
+ * |      | Reset| Debug|      |      |      |      |      |      |      |      |  Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+-------|
+ * |      |      |Aud cy|Aud on|AudOff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |       |
+ * |------+------+------+------+------+------|------+------+------+------+------+-------|
+ * |      |Voice-|Voice+|Mus on|MusOff|MidiOn|MidOff|      |      |      |      |       |
+ * |------+------+------+------+------+------+------+------+------+------+------+-------|
+ * |      |      |      |      |      |             |      |      |      |      |       |
+ * `------------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_grid(
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
   _______, QK_BOOT, DB_TOGG, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
   _______, _______, MU_NEXT, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______,
-  _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, TG(_MOUSE),
+  _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-),
-
-/* Mouse (Lower + Raise)
- * ,------------------------------------------------------------------------------------------------------------------.
- * | ToggleMouse | Accel0 | Accel1 | Accel2 |       |      |      |       |          |          |          |          |
- * |-------------+--------+--------+--------+-------+------+------+-------+----------+----------+----------+----------|
- * |             |        | MouseU |        |       |      |      |       |          |          |          |          |
- * |-------------+--------+--------+--------+-------+-------------+-------+----------+----------+----------+----------|
- * |             | MouseL | MouseD | MouseR |       |      |      |       |          |          |          |          |
- * |-------------+--------+--------+--------+-------+------|------+-------+----------+----------+----------+----------|
- * |             |        |        |        |       |      |      |       |          |          |          |          |
- * |-------------+--------+--------+--------+-------+------+------+-------+----------+----------+----------+----------|
- * |             |        |        |        |       |    Click    |       | Wheel LT | Wheel DN | Wheel Up | Wheel RT |
- * `------------------------------------------------------------------------------------------------------------------'
- */
-[_MOUSE] = LAYOUT_preonic_grid(
-  TG(_MOUSE),  MS_ACL0, MS_ACL1, MS_ACL2, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______,     _______, MS_UP,   _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______,     MS_LEFT, MS_DOWN, MS_RGHT, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______,     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______,     _______, _______, _______, _______, MS_BTN1, MS_BTN1, _______, MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR
 )
-
 
 };
 
