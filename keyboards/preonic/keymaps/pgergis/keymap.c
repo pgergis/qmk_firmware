@@ -236,19 +236,19 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
   } else {
     if (IS_LAYER_ON(_RAISE)) {
       if (clockwise) {
-          register_code(KC_VOLU);
-          unregister_code(KC_VOLU);
-      } else {
-          register_code(KC_VOLD);
-          unregister_code(KC_VOLD);
-      }
-    } else {
-      if (clockwise) {
         register_code(MS_WHLD);
         unregister_code(MS_WHLD);
       } else {
         register_code(MS_WHLU);
         unregister_code(MS_WHLU);
+      }
+    } else {
+      if (clockwise) {
+          register_code(KC_VOLU);
+          unregister_code(KC_VOLU);
+      } else {
+          register_code(KC_VOLD);
+          unregister_code(KC_VOLD);
       }
     }
   }
